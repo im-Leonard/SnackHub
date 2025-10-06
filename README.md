@@ -1,2 +1,1 @@
-![Alt-Text](https://imgur.com/a/kUgHvD4)
-
+![snackhub_logo](https://imgur.com/1qbNuag)
