@@ -12,6 +12,13 @@ def get_db_connection():
         database="schul_kantine"
     )
 
+#Test Anmeldedaten:
+#Schüler: user: schueler1, pass: test123
+#Kantine: user: kantine1, pass: kantine123
+#admin: user: admin1, pass: admin123    
+
+
+
 class KantineApp:
     def __init__(self):
         self.current_user = None
@@ -30,7 +37,7 @@ class KantineApp:
             username_field = ft.TextField(
                 label="Benutzername",
                 width=300,
-                prefix_icon=ft.icons.PERSON,
+                prefix_icon=ft.Icons.PERSON,
                 border_color="#2196F3"
             )
             password_field = ft.TextField(
@@ -38,7 +45,7 @@ class KantineApp:
                 password=True,
                 can_reveal_password=True,
                 width=300,
-                prefix_icon=ft.icons.LOCK,
+                prefix_icon=ft.Icons.LOCK,
                 border_color="#2196F3"
             )
             error_text = ft.Text(color="red", size=12)
@@ -91,7 +98,7 @@ class KantineApp:
             login_container = ft.Container(
                 content=ft.Column([
                     ft.Container(
-                        content=ft.Icon(ft.icons.RESTAURANT_MENU, size=80, color="white"),
+                        content=ft.Icon(ft.Icons.RESTAURANT_MENU, size=80, color="white"),
                         bgcolor="#FF5722",
                         width=150,
                         height=150,
@@ -160,7 +167,7 @@ class KantineApp:
                         poll_card = ft.Container(
                             content=ft.Column([
                                 ft.Row([
-                                    ft.Icon(ft.icons.RESTAURANT, color="#FF5722"),
+                                    ft.Icon(ft.Icons.RESTAURANT, color="#FF5722"),
                                     ft.Text(poll['name'], size=18, weight=ft.FontWeight.BOLD),
                                 ]),
                                 ft.Text(poll['description'], color="#666"),
@@ -227,7 +234,7 @@ class KantineApp:
                         meal_card = ft.Container(
                             content=ft.Column([
                                 ft.Row([
-                                    ft.Icon(ft.icons.FASTFOOD, color="#FF9800"),
+                                    ft.Icon(ft.Icons.FASTFOOD, color="#FF9800"),
                                     ft.Text(meal['name'], size=18, weight=ft.FontWeight.BOLD),
                                 ]),
                                 ft.Text(meal['description'], color="#666"),
@@ -362,18 +369,18 @@ class KantineApp:
                 min_extended_width=200,
                 destinations=[
                     ft.NavigationRailDestination(
-                        icon=ft.icons.HOW_TO_VOTE_OUTLINED,
-                        selected_icon=ft.icons.HOW_TO_VOTE,
+                        icon=ft.Icons.HOW_TO_VOTE_OUTLINED,
+                        selected_icon=ft.Icons.HOW_TO_VOTE,
                         label="Abstimmen"
                     ),
                     ft.NavigationRailDestination(
-                        icon=ft.icons.SHOPPING_CART_OUTLINED,
-                        selected_icon=ft.icons.SHOPPING_CART,
+                        icon=ft.Icons.SHOPPING_CART_OUTLINED,
+                        selected_icon=ft.Icons.SHOPPING_CART,
                         label="Vorbestellen"
                     ),
                     ft.NavigationRailDestination(
-                        icon=ft.icons.FEEDBACK_OUTLINED,
-                        selected_icon=ft.icons.FEEDBACK,
+                        icon=ft.Icons.FEEDBACK_OUTLINED,
+                        selected_icon=ft.Icons.FEEDBACK,
                         label="Feedback"
                     ),
                 ],
@@ -425,7 +432,7 @@ class KantineApp:
                     for result in results:
                         result_card = ft.Container(
                             content=ft.Row([
-                                ft.Icon(ft.icons.RESTAURANT, color="#FF5722", size=40),
+                                ft.Icon(ft.Icons.RESTAURANT, color="#FF5722", size=40),
                                 ft.Column([
                                     ft.Text(result['name'], size=18, weight=ft.FontWeight.BOLD),
                                     ft.Text(result['description'], color="#666"),
@@ -486,7 +493,7 @@ class KantineApp:
                         feedback_card = ft.Container(
                             content=ft.Column([
                                 ft.Row([
-                                    ft.Icon(ft.icons.PERSON, color="#9C27B0"),
+                                    ft.Icon(ft.Icons.PERSON, color="#9C27B0"),
                                     ft.Text(fb['username'], weight=ft.FontWeight.BOLD),
                                     ft.Text(f"→ {fb['meal_name']}", color="#666"),
                                 ]),
@@ -570,9 +577,9 @@ class KantineApp:
                 label_type=ft.NavigationRailLabelType.ALL,
                 min_width=100,
                 destinations=[
-                    ft.NavigationRailDestination(icon=ft.icons.POLL, label="Abstimmungen"),
-                    ft.NavigationRailDestination(icon=ft.icons.FEEDBACK, label="Feedbacks"),
-                    ft.NavigationRailDestination(icon=ft.icons.RESTAURANT_MENU, label="Profil"),
+                    ft.NavigationRailDestination(icon=ft.Icons.POLL, label="Abstimmungen"),
+                    ft.NavigationRailDestination(icon=ft.Icons.FEEDBACK, label="Feedbacks"),
+                    ft.NavigationRailDestination(icon=ft.Icons.RESTAURANT_MENU, label="Profil"),
                 ],
                 on_change=lambda e: handle_kantine_nav(e.control.selected_index),
                 bgcolor="#FF5722"
